@@ -1,0 +1,32 @@
+---
+- hosts: ALL
+  become: yes
+  tasks:
+    - name: install python pip
+      yum:
+        name: python-pip
+        state: present
+    - name: install docker-py python module
+      pip:
+        name: docker-py
+        state: present
+    - name: install docker
+      yum:
+        name: docker
+        state: present
+    - name: start docker
+      service:
+        name: docker
+        enabled: yes
+        state: started
+    - name: start container from downloaded image
+      docker_container:
+        name: myapp2021
+        image: "459512/demo_practice:{{dockertag}}"
+        state: started
+        ports:
+         - "9000:8080"
+    - name: discard old images
+      command: docker image prune -af --filter 'label=app=my-app'
+      ignore_errors: yes
+
