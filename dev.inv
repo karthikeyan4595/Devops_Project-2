@@ -1,4 +1,4 @@
 [ALL]
-172.31.2.234 ansible_user=ec2-user
+172.31.36.117 ansible_user=ec2-user
 172.31.47.138 ansible_user=ec2-user
 
