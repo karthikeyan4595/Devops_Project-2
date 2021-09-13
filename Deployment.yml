@@ -2,10 +2,8 @@
 - hosts: aws_ec2
   become: yes
   tasks:
-    - name: install python pip
-      dnf:
-        name: python3-pip
-        state: present
+    - name: install python pip3
+      command: dnf install -y python3-dnf
     - name: install docker-py python module
       pip:
         name: docker-py
