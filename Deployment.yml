@@ -4,7 +4,7 @@
   tasks:
     - name: install python pip3
       command: dnf install -y python3-dnf
-      warn: false
+        warn: false
     - name: install docker-py python module
       pip:
         name: docker-py
