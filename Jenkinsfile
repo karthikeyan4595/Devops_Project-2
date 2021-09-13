@@ -31,9 +31,11 @@ pipeline{
         }
         stage ("Ansible Deployment") {
             steps {
-                ansiblePlaybook credentialsId: 'deploy-ansible', disableHostKeyChecking: true, extras: "-e dockertag=${dockertag}", installation: 'ansible2', inventory: 'dev.inv', playbook: 'Deployment.yml'
-                
-            }
+                ansiblePlaybook credentialsId: 'deploy-ansible', 
+                    disableHostKeyChecking: true, 
+                    extras: "-e dockertag=${dockertag}", installation: 'ansible2', 
+                    inventory: 'aws_ec2.yml', playbook: 'Deployment.yml'
+                }
         }
     }
 
