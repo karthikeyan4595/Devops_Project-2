@@ -1,0 +1,4 @@
+[ALL]
+172.31.36.117 
+[ALL:vars]
+ansible_user=ec2-user
